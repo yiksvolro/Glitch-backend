@@ -58,6 +58,8 @@ namespace Glitch
         {
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
+            app.UseMiddleware<ErrorHandlerMiddleware>();
+
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
