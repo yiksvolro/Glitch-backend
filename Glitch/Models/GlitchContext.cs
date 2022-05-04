@@ -29,6 +29,12 @@ namespace Glitch.Models
             {
                 entity.HasOne(t => t.Place).WithMany(pl => pl.Tables).HasForeignKey(t => t.PlaceId);
             });
+            modelBuilder.Entity<Booking>(entity =>
+            {
+                entity.HasOne(b => b.User).WithMany(u => u.Bookings).HasForeignKey(b => b.UserId).OnDelete(DeleteBehavior.NoAction);
+                entity.HasOne(b => b.Table).WithMany(t => t.Bookings).HasForeignKey(b => b.TableId).OnDelete(DeleteBehavior.NoAction);
+                entity.HasOne(b => b.Place).WithMany(p => p.Bookings).HasForeignKey(b => b.PlaceId).OnDelete(DeleteBehavior.NoAction);
+            });
         }
     }
 }
