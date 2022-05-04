@@ -17,7 +17,7 @@ namespace Glitch.Helpers
                 using var scope = serviceProvider.CreateScope();
                 var context = scope.ServiceProvider.GetService<GlitchContext>();
 
-                string[] roles = new string[] { "SuperAdmin", "PlaceOwner" };
+                string[] roles = new string[] { "SuperAdmin", "PlaceOwner", "User" };
 
                 foreach (string role in roles)
                 {

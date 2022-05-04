@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Glitch.Helpers.Seed;
+using AutoMapper;
+using Glitch.Infrastructure;
 
 namespace Glitch
 {
@@ -18,7 +20,10 @@ namespace Glitch
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            MapperConfiguration = new MapperConfiguration(cfg => { cfg.AddProfile(new MappingProfiles()); });
         }
+        private MapperConfiguration MapperConfiguration { get; }
 
         public IConfiguration Configuration { get; }
 
@@ -30,7 +35,7 @@ namespace Glitch
             services.AddDbContext<GlitchContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("GlitchSqlDb")));
 
-            //services.AddSingleton(c => MapperConfiguration.CreateMapper());
+            services.AddSingleton(c => MapperConfiguration.CreateMapper());
 
             services.AddCors(options =>
             {
@@ -49,6 +54,8 @@ namespace Glitch
             })  
             .AddEntityFrameworkStores<GlitchContext>()
             .AddDefaultTokenProviders();
+
+            services.AddGlitchServices();
 
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" }); });
         }
