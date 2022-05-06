@@ -26,5 +26,12 @@ namespace Glitch.Services
             return _mapper.Map<UserApiModel>(user);
 
         }
+
+        public async Task<UserApiModel> GetUserByUserId(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) throw new ApiException("Can't find user by this id");
+            return _mapper.Map<UserApiModel>(user);
+        }
     }
 }

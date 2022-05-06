@@ -6,5 +6,6 @@ namespace Glitch.Services.Interfaces
     public interface IUserService: IBaseService<UserApiModel>
     {
         Task<UserApiModel> GetUserByUserEmail(string email);
+        Task<UserApiModel> GetUserByUserId(string id);
     }
 }
