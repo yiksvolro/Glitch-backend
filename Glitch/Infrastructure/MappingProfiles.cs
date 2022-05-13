@@ -10,6 +10,12 @@ namespace Glitch.Infrastructure
         {
             CreateMap<User, UserApiModel>();
             CreateMap<UserApiModel, User>();
+
+            CreateMap<Place, PlaceApiModel>();
+            CreateMap<PlaceApiModel, Place>();
+
+            CreateMap<Table, TableApiModel>();
+            CreateMap<TableApiModel, Table>();
         }
     }
 }

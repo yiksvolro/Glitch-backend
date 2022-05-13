@@ -17,7 +17,7 @@ namespace Glitch.Helpers
                 using var scope = serviceProvider.CreateScope();
                 var context = scope.ServiceProvider.GetService<GlitchContext>();
 
-                string[] roles = new string[] { "SuperAdmin", "PlaceOwner", "User" };
+                string[] roles = new string[] { "Admin", "PlaceOwner", "User" };
 
                 foreach (string role in roles)
                 {
@@ -48,7 +48,7 @@ namespace Glitch.Helpers
                 if (!context.Users.Any(u => u.UserName == user.UserName))
                 {
                     var password = new PasswordHasher<User>();
-                    var hashed = password.HashPassword(user, "secret");
+                    var hashed = password.HashPassword(user, "!Admin11");
                     user.PasswordHash = hashed;
 
                     var userStore = new AppUserStore(context);

@@ -9,6 +9,8 @@ namespace Glitch.Infrastructure
         public static IServiceCollection AddGlitchRepos(this IServiceCollection services)
         {
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPlaceRepository, PlaceRepository>();
+            services.AddScoped<ITableRepository, TableRepository>();
 
             return services;
         }

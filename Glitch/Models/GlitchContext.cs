@@ -17,6 +17,7 @@ namespace Glitch.Models
         public override DbSet<User> Users { get; set; }
         public DbSet<Place> Places { get; set; }
         public DbSet<Table> Tables { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

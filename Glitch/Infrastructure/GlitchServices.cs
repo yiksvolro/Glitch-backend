@@ -9,11 +9,7 @@ namespace Glitch.Infrastructure
     {
         public static IServiceCollection AddGlitchServices(this IServiceCollection services)
         {
-            //services.AddIdentity<IdentityAuthUser, IdentityAuthRole>(opt =>
-            //{
-            //    opt.SignIn.RequireConfirmedEmail = true;
-            //})
-            //.AddEntityFrameworkStores<TrackerContext>();
+            
             services.AddAuthentication("MyCookie")
             .AddCookie("MyCookie", options =>
             {
@@ -26,6 +22,8 @@ namespace Glitch.Infrastructure
 
             // Import All Services
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IPlaceService, PlaceService>();
+            services.AddScoped<ITableService, TableService>();
 
             return services;
         }
