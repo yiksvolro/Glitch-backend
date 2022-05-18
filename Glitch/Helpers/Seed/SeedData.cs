@@ -10,6 +10,7 @@ namespace Glitch.Helpers
 {
     public static class SeedData
     {
+        private static readonly string simplePass = "!Admin11";
         public static void Initialize(IServiceProvider serviceProvider)
         {
             Task.Run(async () =>
@@ -36,7 +37,7 @@ namespace Glitch.Helpers
                     LastName = "Admin",
                     Email = "xxxx@example.com",
                     NormalizedEmail = "XXXX@EXAMPLE.COM",
-                    UserName = "Owner",
+                    UserName = "xxxx@example.com",
                     NormalizedUserName = "OWNER",
                     PhoneNumber = "+111111111111",
                     EmailConfirmed = true,
@@ -48,7 +49,7 @@ namespace Glitch.Helpers
                 if (!context.Users.Any(u => u.UserName == user.UserName))
                 {
                     var password = new PasswordHasher<User>();
-                    var hashed = password.HashPassword(user, "!Admin11");
+                    var hashed = password.HashPassword(user, simplePass);
                     user.PasswordHash = hashed;
 
                     var userStore = new AppUserStore(context);
