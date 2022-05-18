@@ -1,5 +1,6 @@
 ﻿using Glitch.ApiModels;
 using Glitch.ApiModels.UserModels;
+using Glitch.Extensions;
 using Glitch.Models;
 using Glitch.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -21,20 +22,18 @@ namespace Glitch.Controllers
         private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userManager;
         private readonly IUserService _userService;
-        private readonly IConfiguration _configuration;
-        public UserController(SignInManager<User> signInManager, UserManager<User> userManager, IUserService userService, IConfiguration configuration)
+        public UserController(SignInManager<User> signInManager, UserManager<User> userManager, IUserService userService)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _userService = userService;
-            _configuration = configuration;
         }
         [HttpPost]
         public async Task<IActionResult> Register([FromBody] RegisterUser model)
         {
             if (ModelState.IsValid)
             {
-                var time = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(_configuration.GetSection("KyivTimeZone").Value));
+                var time = DateTime.UtcNow.GetUkrainianDateTime();
                 var user = new User
                 {
                     FirstName = model.FirstName,
@@ -121,7 +120,7 @@ namespace Glitch.Controllers
             user.UserName = model.Email;
             user.FirstName = model.FirstName;
             user.LastName = model.LastName; 
-            user.UpdatedAt = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById(_configuration.GetSection("KyivTimeZone").Value));
+            user.UpdatedAt = DateTime.UtcNow.GetUkrainianDateTime();
             await _userManager.UpdateAsync(user);
 
             var res = await _userService.GetUserByUserEmail(model.Email);

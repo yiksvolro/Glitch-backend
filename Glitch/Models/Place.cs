@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Glitch.Extensions;
+using System;
 using System.Collections.Generic;
 
 namespace Glitch.Models
@@ -11,8 +12,8 @@ namespace Glitch.Models
         public string Location { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
-        public DateTime CreatedUtc { get; set; } = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("FLE Standard Time"));
-        public DateTime UpdatedUtc  { get; set; } = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("FLE Standard Time"));
+        public DateTime CreatedUtc { get; set; } = DateTime.UtcNow.GetUkrainianDateTime();
+        public DateTime UpdatedUtc  { get; set; } = DateTime.UtcNow.GetUkrainianDateTime();
         public virtual List<Table> Tables { get; set; }
         public virtual List<Booking> Bookings { get; set; }
         public virtual User User { get; set; }
