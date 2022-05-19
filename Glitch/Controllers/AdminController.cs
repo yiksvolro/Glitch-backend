@@ -15,10 +15,12 @@ namespace Glitch.Controllers
     {
         private readonly IPlaceService _placeService;
         private readonly ITableService _tableService;
-        public AdminController(IPlaceService placeService, ITableService tableService)
+        private readonly IUserService _userService;
+        public AdminController(IPlaceService placeService, ITableService tableService, IUserService userService)
         {
             _placeService = placeService;
             _tableService = tableService;
+            _userService = userService;
         }
 
         [HttpPost]
@@ -36,5 +38,27 @@ namespace Glitch.Controllers
             if(res.All(table => table.Success)) return Ok(res);
             return NotFound();
         }
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> GetUser(string userId)
+        {
+            var user = await _userService.GetUserByUserId(userId);
+            if (user != null)
+            {
+                return Ok(user);
+            }
+            return NotFound();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var user = await _userService.GetAllAsync();
+            if (user != null)
+            {
+                return Ok(user);
+            }
+            return NotFound();
+        }
+
     }
 }
