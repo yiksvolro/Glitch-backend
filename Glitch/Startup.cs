@@ -52,6 +52,7 @@ namespace Glitch
             services.AddIdentity<User, AppRole>(options =>
             {
                 options.User.RequireUniqueEmail = false;
+                options.Password.RequireNonAlphanumeric = false;
             })  
             .AddEntityFrameworkStores<GlitchContext>()
             .AddDefaultTokenProviders();
