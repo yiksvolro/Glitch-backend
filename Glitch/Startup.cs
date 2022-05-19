@@ -43,7 +43,8 @@ namespace Glitch
                     builder => builder.WithOrigins("http://localhost:4200")
                         .AllowAnyMethod()
                         .AllowAnyHeader()
-                        .AllowCredentials());
+                        //.AllowCredentials()
+                        .AllowAnyOrigin());
             });
 
             services.AddMvc();
