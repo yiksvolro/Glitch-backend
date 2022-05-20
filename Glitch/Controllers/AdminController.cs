@@ -3,13 +3,14 @@ using Glitch.ApiModels.Lists;
 using Glitch.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Glitch.Controllers
 {
     [ApiController]
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]/[action]")]
     public class AdminController : Controller
     {
@@ -58,6 +59,33 @@ namespace Glitch.Controllers
                 return Ok(user);
             }
             return NotFound();
+        }
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> GetAllRolesById(int userId)
+        {
+            var roles = await _userService.GetUserRolesById(userId);
+            if (roles != null && roles.Any()) return Ok(roles);
+
+            return NotFound();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllRoles()
+        {
+            var roles = await _userService.GetAllRoles();
+            if (roles != null && roles.Any()) return Ok(roles);
+
+            return NotFound();
+        }
+        [HttpPut("{userId}")]
+        public async Task<IActionResult> UpdateUserRoles(int userId, [FromBody] List<string> roles)
+        {
+            if (await _userService.UpdateUserRoles(userId, roles))
+            {
+                return Ok();
+            }
+
+            return BadRequest();
         }
 
     }
