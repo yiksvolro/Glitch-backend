@@ -1,4 +1,5 @@
-﻿using Glitch.Models;
+﻿using Glitch.ApiModels.PaginationModels;
+using Glitch.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -20,5 +21,14 @@ namespace Glitch.Repositories.Interfaces
         Task<List<TModel>> GetAllAsync();
 
         Task<List<TModel>> GetAllAsync(Func<TModel, bool> filter);
+        Task<PagedResult<TU>> GetPageAsync<TU>(int page, int pageSize) where TU : class;
+
+        Task<PagedResult<TModel>> GetPageAsync(Func<TModel, bool> filter, int page, int pageSize);
+
+        Task<PagedResult<TU>> GetPageAsync<TU>(Func<TModel, bool> filter, int page, int pageSize) where TU : class;
+
+        Task<PagedResult<TModel>> GetPageAsync(Func<TModel, bool> filter, int page, int pageSize, Func<TModel, object> order);
+
+        Task<PagedResult<TU>> GetPageAsync<TU>(Func<TModel, bool> filter, int page, int pageSize, Func<TModel, object> order) where TU : class;
     }
 }

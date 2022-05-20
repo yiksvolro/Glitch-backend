@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Glitch.ApiModels;
+using Glitch.ApiModels.PaginationModels;
 using Glitch.Helpers.Models;
 using Glitch.Models;
 using Glitch.Repositories.Interfaces;
@@ -18,7 +19,14 @@ namespace Glitch.Services
         {
             _mapper = mapper;
             _userManager = userManager;
+            _userRepository = userRepository;
         }
+
+        public async Task<PagedResult<UserApiModel>> GetPageUser(BasePageModel model)
+        {
+            return await _userRepository.GetPageAsync<UserApiModel>(model.Page, model.PageSize);
+        }
+
         public async Task<UserApiModel> GetUserByUserEmail(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);

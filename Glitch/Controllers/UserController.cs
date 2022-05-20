@@ -141,5 +141,16 @@ namespace Glitch.Controllers
             }
             return NotFound();
         }
+        [HttpDelete]
+        public async Task<IActionResult> Delete()
+        {
+            var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var res = await _userService.DeleteAsync(Convert.ToInt32(userId));
+            if (res)
+            {
+                return Ok("Your account was deleted successfully.");
+            }
+            return NotFound();
+        }
     }
 }

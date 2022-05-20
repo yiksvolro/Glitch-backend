@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Glitch.Controllers
 {
     [ApiController]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     [Route("api/[controller]/[action]")]
     public class AdminController : Controller
     {
@@ -49,10 +49,10 @@ namespace Glitch.Controllers
             return NotFound();
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
+        [HttpPost]
+        public async Task<IActionResult> GetAll(BasePageModel model)
         {
-            var user = await _userService.GetAllAsync();
+            var user = await _userService.GetPageUser(model);
             if (user != null)
             {
                 return Ok(user);
