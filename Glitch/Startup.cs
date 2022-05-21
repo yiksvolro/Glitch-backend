@@ -37,15 +37,14 @@ namespace Glitch
 
             services.AddSingleton(c => MapperConfiguration.CreateMapper());
 
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy("CorsPolicy",
-            //        builder => builder.WithOrigins("http://localhost:4200")
-            //            .AllowAnyMethod()
-            //            .AllowAnyHeader()
-            //            //.AllowCredentials()
-            //            .AllowAnyOrigin());
-            //});
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowAnyOrigin());
+            });
 
             services.AddMvc();
 
@@ -76,14 +75,16 @@ namespace Glitch
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1"); });
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("CorsPolicy");
 
             app.UseAuthentication();
             app.UseAuthorization();
 
-            //app.UseCors("CorsPolicy");
+            
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
             SeedData.Initialize(app.ApplicationServices);
