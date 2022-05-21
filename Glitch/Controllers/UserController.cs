@@ -131,6 +131,7 @@ namespace Glitch.Controllers
             return NotFound();
         }
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetCurrent()
         {
             var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -142,6 +143,7 @@ namespace Glitch.Controllers
             return NotFound();
         }
         [HttpDelete]
+        [Authorize]
         public async Task<IActionResult> Delete()
         {
             var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
