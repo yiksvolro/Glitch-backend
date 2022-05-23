@@ -1,5 +1,6 @@
 ﻿using Glitch.Services;
 using Glitch.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
@@ -14,6 +15,10 @@ namespace Glitch.Infrastructure
             .AddCookie("MyCookie", options =>
             {
                 options.ExpireTimeSpan = TimeSpan.FromDays(30);
+            });
+
+            services.ConfigureApplicationCookie(options => {
+                options.Cookie.SameSite = SameSiteMode.None;
             });
 
 
