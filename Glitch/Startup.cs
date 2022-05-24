@@ -40,10 +40,11 @@ namespace Glitch
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
-                    builder => builder
+                    builder => builder.WithOrigins("http://localhost:3000")
                         .AllowAnyMethod()
-                        .AllowAnyHeader()
-                        .AllowAnyOrigin());
+                        .AllowCredentials()
+                        .AllowAnyHeader());
+                // .AllowAnyOrigin());
             });
 
             services.AddMvc();
