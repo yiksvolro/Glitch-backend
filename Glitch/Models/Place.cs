@@ -12,6 +12,8 @@ namespace Glitch.Models
         public string Location { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
+        public int AllTables { get; set; }
+        public int FreeTables { get; set; }
         public DateTime CreatedUtc { get; set; } = DateTime.UtcNow.GetUkrainianDateTime();
         public DateTime UpdatedUtc  { get; set; } = DateTime.UtcNow.GetUkrainianDateTime();
         public virtual List<Table> Tables { get; set; }

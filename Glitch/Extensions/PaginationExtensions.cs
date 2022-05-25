@@ -158,7 +158,7 @@ namespace TrackerApi.Extensions
                 CurrentPage = page,
                 PageSize = pageSize
             };
-            query = (IQueryable<T>)query.Where(filter);
+            query = query.Where(filter).AsQueryable();
             result.RowCount = query.Count();
 
             var pageCount = (double)result.RowCount / pageSize;

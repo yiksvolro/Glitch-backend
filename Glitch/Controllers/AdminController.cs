@@ -32,12 +32,16 @@ namespace Glitch.Controllers
             return NotFound();
         }
         [HttpPost]
-        public async Task<IActionResult> CreateTablesAndAssign(ListTableApiModel listTables, [FromQuery]int placeId)
+        public async Task<IActionResult> CreateTablesAndAssign(ListTableApiModel listTables)
         {
-            listTables.Tables.ForEach(table => table.PlaceId = placeId);
             var res = await _tableService.CreateRangeAsync(listTables.Tables);
             if(res.All(table => table.Success)) return Ok(res);
             return NotFound();
+        }
+        [HttpDelete("{placeId}")]
+        public async Task<IActionResult> DeletePlace(int placeId)
+        {
+            return Ok(await _placeService.DeleteAsync(placeId));
         }
         [HttpGet("{userId}")]
         public async Task<IActionResult> GetUser(string userId)

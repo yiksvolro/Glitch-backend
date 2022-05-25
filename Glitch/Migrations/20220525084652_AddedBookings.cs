@@ -7,6 +7,10 @@ namespace Glitch.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropColumn(
+                name: "FreeSeats",
+                table: "Tables");
+
             migrationBuilder.RenameColumn(
                 name: "UpdatedUtc",
                 table: "AspNetUsers",
@@ -16,6 +20,20 @@ namespace Glitch.Migrations
                 name: "CreatedUtc",
                 table: "AspNetUsers",
                 newName: "CreatedAt");
+
+            migrationBuilder.AddColumn<int>(
+                name: "AllTables",
+                table: "Places",
+                type: "int",
+                nullable: false,
+                defaultValue: 0);
+
+            migrationBuilder.AddColumn<int>(
+                name: "FreeTables",
+                table: "Places",
+                type: "int",
+                nullable: false,
+                defaultValue: 0);
 
             migrationBuilder.AddColumn<double>(
                 name: "Latitude",
@@ -32,10 +50,11 @@ namespace Glitch.Migrations
                 defaultValue: 0.0);
 
             migrationBuilder.CreateTable(
-                name: "Booking",
+                name: "Bookings",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     PlaceId = table.Column<int>(type: "int", nullable: false),
                     TableId = table.Column<int>(type: "int", nullable: false),
@@ -44,44 +63,52 @@ namespace Glitch.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Booking", x => x.Id);
+                    table.PrimaryKey("PK_Bookings", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Booking_AspNetUsers_UserId",
+                        name: "FK_Bookings_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Booking_Places_PlaceId",
+                        name: "FK_Bookings_Places_PlaceId",
                         column: x => x.PlaceId,
                         principalTable: "Places",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Booking_Tables_TableId",
+                        name: "FK_Bookings_Tables_TableId",
                         column: x => x.TableId,
                         principalTable: "Tables",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Booking_PlaceId",
-                table: "Booking",
+                name: "IX_Bookings_PlaceId",
+                table: "Bookings",
                 column: "PlaceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Booking_TableId",
-                table: "Booking",
+                name: "IX_Bookings_TableId",
+                table: "Bookings",
                 column: "TableId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Booking_UserId",
-                table: "Booking",
+                name: "IX_Bookings_UserId",
+                table: "Bookings",
                 column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Booking");
+                name: "Bookings");
+
+            migrationBuilder.DropColumn(
+                name: "AllTables",
+                table: "Places");
+
+            migrationBuilder.DropColumn(
+                name: "FreeTables",
+                table: "Places");
 
             migrationBuilder.DropColumn(
                 name: "Latitude",
@@ -100,6 +127,13 @@ namespace Glitch.Migrations
                 name: "CreatedAt",
                 table: "AspNetUsers",
                 newName: "CreatedUtc");
+
+            migrationBuilder.AddColumn<int>(
+                name: "FreeSeats",
+                table: "Tables",
+                type: "int",
+                nullable: false,
+                defaultValue: 0);
         }
     }
 }

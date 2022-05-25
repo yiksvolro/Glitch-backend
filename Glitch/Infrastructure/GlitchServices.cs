@@ -29,6 +29,7 @@ namespace Glitch.Infrastructure
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IPlaceService, PlaceService>();
             services.AddScoped<ITableService, TableService>();
+            services.AddScoped<IBookingService, BookingService>();
 
             return services;
         }

@@ -3,9 +3,9 @@ using System;
 
 namespace Glitch.Models
 {
-    public class Booking
+    public class Booking : IBaseModel
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public int UserId { get; set; }
         public int PlaceId { get; set; }
         public int TableId { get; set; }
