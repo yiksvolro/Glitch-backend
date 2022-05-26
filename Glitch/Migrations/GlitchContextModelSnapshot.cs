@@ -94,9 +94,6 @@ namespace Glitch.Migrations
                     b.Property<DateTime>("CreatedUtc")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("FreeTables")
                         .HasColumnType("int");
 
@@ -110,6 +107,9 @@ namespace Glitch.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShortName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdatedUtc")
@@ -141,17 +141,20 @@ namespace Glitch.Migrations
                     b.Property<bool>("IsFree")
                         .HasColumnType("bit");
 
+                    b.Property<int>("Left")
+                        .HasColumnType("int");
+
                     b.Property<int>("PlaceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Top")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Transform")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedUtc")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("X")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Y")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

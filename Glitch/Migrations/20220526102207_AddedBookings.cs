@@ -7,9 +7,25 @@ namespace Glitch.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
+            migrationBuilder.RenameColumn(
+                name: "Y",
+                table: "Tables",
+                newName: "Transform");
+
+            migrationBuilder.RenameColumn(
+                name: "X",
+                table: "Tables",
+                newName: "Top");
+
+            migrationBuilder.RenameColumn(
                 name: "FreeSeats",
-                table: "Tables");
+                table: "Tables",
+                newName: "Left");
+
+            migrationBuilder.RenameColumn(
+                name: "Description",
+                table: "Places",
+                newName: "ShortName");
 
             migrationBuilder.RenameColumn(
                 name: "UpdatedUtc",
@@ -119,6 +135,26 @@ namespace Glitch.Migrations
                 table: "Places");
 
             migrationBuilder.RenameColumn(
+                name: "Transform",
+                table: "Tables",
+                newName: "Y");
+
+            migrationBuilder.RenameColumn(
+                name: "Top",
+                table: "Tables",
+                newName: "X");
+
+            migrationBuilder.RenameColumn(
+                name: "Left",
+                table: "Tables",
+                newName: "FreeSeats");
+
+            migrationBuilder.RenameColumn(
+                name: "ShortName",
+                table: "Places",
+                newName: "Description");
+
+            migrationBuilder.RenameColumn(
                 name: "UpdatedAt",
                 table: "AspNetUsers",
                 newName: "UpdatedUtc");
@@ -127,13 +163,6 @@ namespace Glitch.Migrations
                 name: "CreatedAt",
                 table: "AspNetUsers",
                 newName: "CreatedUtc");
-
-            migrationBuilder.AddColumn<int>(
-                name: "FreeSeats",
-                table: "Tables",
-                type: "int",
-                nullable: false,
-                defaultValue: 0);
         }
     }
 }
