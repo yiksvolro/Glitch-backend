@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace Glitch.Controllers
 {
     [ApiController]
-    [Authorize]
     [Route("api/[controller]/[action]")]
     public class PlaceController : Controller
     {
