@@ -35,6 +35,12 @@ namespace Glitch.Controllers
         public async Task<IActionResult> CreateTablesAndAssign(ListTableApiModel listTables)
         {
             var res = await _tableService.CreateRangeAsync(listTables.Tables);
+            
+            var placeToUpdate = await _placeService.GetByIdAsync(listTables.Tables.FirstOrDefault().PlaceId);
+            placeToUpdate.AllTables += listTables.Tables.Count();
+            placeToUpdate.FreeTables += listTables.Tables.Count();
+            await _placeService.UpdateAsync(placeToUpdate);
+
             if(res.All(table => table.Success)) return Ok(res);
             return NotFound();
         }
@@ -71,6 +77,11 @@ namespace Glitch.Controllers
             if (roles != null && roles.Any()) return Ok(roles);
 
             return NotFound();
+        }
+        [HttpGet("{roleName}")]
+        public async Task<IActionResult> GetUsersByRoleName(string roleName)
+        {
+            return Ok(await _userService.GetUsersByRoleName(roleName));
         }
 
         [HttpGet]

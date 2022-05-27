@@ -13,5 +13,6 @@ namespace Glitch.Services.Interfaces
         Task<List<string>> GetUserRolesById(int userId);
         Task<List<string>> GetAllRoles();
         Task<bool> UpdateUserRoles(int userId, IEnumerable<string> roles);
+        Task<List<UserApiModel>> GetUsersByRoleName(string roleName);
     }
 }

@@ -80,5 +80,12 @@ namespace Glitch.Services
                 return false;
             }
         }
+
+        public async Task<List<UserApiModel>> GetUsersByRoleName(string roleName)
+        {
+            var result = await _userManager.GetUsersInRoleAsync(roleName);
+            if (result == null) throw new ApiException($"There is no users with role {roleName}");
+            return _mapper.Map<List<UserApiModel>>(result);
+        }
     }
 }
