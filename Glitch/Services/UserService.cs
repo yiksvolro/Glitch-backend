@@ -6,6 +6,7 @@ using Glitch.Helpers.Seed;
 using Glitch.Models;
 using Glitch.Repositories.Interfaces;
 using Glitch.Services.Interfaces;
+using Glitch.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -81,11 +82,11 @@ namespace Glitch.Services
             }
         }
 
-        public async Task<List<UserApiModel>> GetUsersByRoleName(string roleName)
+        public async Task<PagedResult<UserApiModel>> GetUsersByRoleName(string roleName, BasePageModel model)
         {
-            var result = await _userManager.GetUsersInRoleAsync(roleName);
-            if (result == null) throw new ApiException($"There is no users with role {roleName}");
-            return _mapper.Map<List<UserApiModel>>(result);
+            var users = _mapper.Map<List<UserApiModel>>(await _userManager.GetUsersInRoleAsync(roleName));
+            if (users == null) throw new ApiException($"There is no users with role {roleName}");
+            return users.GetPaged(model.Page, model.PageSize);
         }
     }
 }

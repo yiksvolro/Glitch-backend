@@ -7,25 +7,23 @@ namespace Glitch.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropColumn(
+                name: "FreeSeats",
+                table: "Tables");
+
+            migrationBuilder.DropColumn(
+                name: "X",
+                table: "Tables");
+
             migrationBuilder.RenameColumn(
                 name: "Y",
                 table: "Tables",
-                newName: "Transform");
-
-            migrationBuilder.RenameColumn(
-                name: "X",
-                table: "Tables",
-                newName: "Top");
-
-            migrationBuilder.RenameColumn(
-                name: "FreeSeats",
-                table: "Tables",
-                newName: "Left");
+                newName: "Number");
 
             migrationBuilder.RenameColumn(
                 name: "Description",
                 table: "Places",
-                newName: "ShortName");
+                newName: "WorkTime");
 
             migrationBuilder.RenameColumn(
                 name: "UpdatedUtc",
@@ -36,6 +34,24 @@ namespace Glitch.Migrations
                 name: "CreatedUtc",
                 table: "AspNetUsers",
                 newName: "CreatedAt");
+
+            migrationBuilder.AddColumn<string>(
+                name: "Left",
+                table: "Tables",
+                type: "nvarchar(max)",
+                nullable: true);
+
+            migrationBuilder.AddColumn<string>(
+                name: "Top",
+                table: "Tables",
+                type: "nvarchar(max)",
+                nullable: true);
+
+            migrationBuilder.AddColumn<string>(
+                name: "Transform",
+                table: "Tables",
+                type: "nvarchar(max)",
+                nullable: true);
 
             migrationBuilder.AddColumn<int>(
                 name: "AllTables",
@@ -64,6 +80,18 @@ namespace Glitch.Migrations
                 type: "float",
                 nullable: false,
                 defaultValue: 0.0);
+
+            migrationBuilder.AddColumn<string>(
+                name: "Rating",
+                table: "Places",
+                type: "nvarchar(max)",
+                nullable: true);
+
+            migrationBuilder.AddColumn<string>(
+                name: "ShortName",
+                table: "Places",
+                type: "nvarchar(max)",
+                nullable: true);
 
             migrationBuilder.CreateTable(
                 name: "Bookings",
@@ -119,6 +147,18 @@ namespace Glitch.Migrations
                 name: "Bookings");
 
             migrationBuilder.DropColumn(
+                name: "Left",
+                table: "Tables");
+
+            migrationBuilder.DropColumn(
+                name: "Top",
+                table: "Tables");
+
+            migrationBuilder.DropColumn(
+                name: "Transform",
+                table: "Tables");
+
+            migrationBuilder.DropColumn(
                 name: "AllTables",
                 table: "Places");
 
@@ -134,23 +174,21 @@ namespace Glitch.Migrations
                 name: "Longitude",
                 table: "Places");
 
+            migrationBuilder.DropColumn(
+                name: "Rating",
+                table: "Places");
+
+            migrationBuilder.DropColumn(
+                name: "ShortName",
+                table: "Places");
+
             migrationBuilder.RenameColumn(
-                name: "Transform",
+                name: "Number",
                 table: "Tables",
                 newName: "Y");
 
             migrationBuilder.RenameColumn(
-                name: "Top",
-                table: "Tables",
-                newName: "X");
-
-            migrationBuilder.RenameColumn(
-                name: "Left",
-                table: "Tables",
-                newName: "FreeSeats");
-
-            migrationBuilder.RenameColumn(
-                name: "ShortName",
+                name: "WorkTime",
                 table: "Places",
                 newName: "Description");
 
@@ -163,6 +201,20 @@ namespace Glitch.Migrations
                 name: "CreatedAt",
                 table: "AspNetUsers",
                 newName: "CreatedUtc");
+
+            migrationBuilder.AddColumn<int>(
+                name: "FreeSeats",
+                table: "Tables",
+                type: "int",
+                nullable: false,
+                defaultValue: 0);
+
+            migrationBuilder.AddColumn<int>(
+                name: "X",
+                table: "Tables",
+                type: "int",
+                nullable: false,
+                defaultValue: 0);
         }
     }
 }

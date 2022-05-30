@@ -142,6 +142,18 @@ namespace Glitch.Controllers
             }
             return NotFound();
         }
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> GetMyRoles()
+        {
+            var userId = Convert.ToInt32(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var result = await _userService.GetUserRolesById(userId);
+            if(result != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
         [HttpDelete]
         [Authorize]
         public async Task<IActionResult> Delete()

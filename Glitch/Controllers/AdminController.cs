@@ -32,13 +32,13 @@ namespace Glitch.Controllers
             return NotFound();
         }
         [HttpPost]
-        public async Task<IActionResult> CreateTablesAndAssign(ListTableApiModel listTables)
+        public async Task<IActionResult> CreateTablesAndAssign(List<TableApiModel> listTables)
         {
-            var res = await _tableService.CreateRangeAsync(listTables.Tables);
+            var res = await _tableService.CreateRangeAsync(listTables);
             
-            var placeToUpdate = await _placeService.GetByIdAsync(listTables.Tables.FirstOrDefault().PlaceId);
-            placeToUpdate.AllTables += listTables.Tables.Count();
-            placeToUpdate.FreeTables += listTables.Tables.Count();
+            var placeToUpdate = await _placeService.GetByIdAsync(listTables.FirstOrDefault().PlaceId);
+            placeToUpdate.AllTables += listTables.Count();
+            placeToUpdate.FreeTables += listTables.Count();
             await _placeService.UpdateAsync(placeToUpdate);
 
             if(res.All(table => table.Success)) return Ok(res);
@@ -79,9 +79,9 @@ namespace Glitch.Controllers
             return NotFound();
         }
         [HttpGet("{roleName}")]
-        public async Task<IActionResult> GetUsersByRoleName(string roleName)
+        public async Task<IActionResult> GetUsersByRoleName(string roleName, [FromQuery] BasePageModel model)
         {
-            return Ok(await _userService.GetUsersByRoleName(roleName));
+            return Ok(await _userService.GetUsersByRoleName(roleName, model));
         }
 
         [HttpGet]

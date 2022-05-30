@@ -4,7 +4,7 @@ using System.Linq;
 using AutoMapper;
 using Glitch.ApiModels.PaginationModels;
 
-namespace TrackerApi.Extensions
+namespace Glitch.Extensions
 {
     public static class PaginationExtensions
     {
