@@ -7,10 +7,11 @@ namespace Glitch.ApiModels
 {
     public class BookingApiModel
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public int UserId { get; set; }
         public int PlaceId { get; set; }
         public int TableId { get; set; }
+        public bool IsArchive { get; set; }
         public DateTime BookedOn { get; set; }
     }
 }

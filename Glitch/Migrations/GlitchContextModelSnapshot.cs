@@ -61,6 +61,9 @@ namespace Glitch.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("IsArchive")
+                        .HasColumnType("bit");
+
                     b.Property<int>("PlaceId")
                         .HasColumnType("int");
 

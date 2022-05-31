@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Glitch.Migrations
 {
     [DbContext(typeof(GlitchContext))]
-    [Migration("20220530104724_AddedBookings")]
+    [Migration("20220531143027_AddedBookings")]
     partial class AddedBookings
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,6 +62,9 @@ namespace Glitch.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsArchive")
+                        .HasColumnType("bit");
 
                     b.Property<int>("PlaceId")
                         .HasColumnType("int");

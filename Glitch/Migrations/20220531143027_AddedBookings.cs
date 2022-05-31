@@ -103,7 +103,8 @@ namespace Glitch.Migrations
                     PlaceId = table.Column<int>(type: "int", nullable: false),
                     TableId = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    BookedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    BookedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsArchive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -5,6 +5,7 @@ using Glitch.Models;
 using Glitch.Repositories.Interfaces;
 using Glitch.Services.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Glitch.Services
@@ -12,15 +13,29 @@ namespace Glitch.Services
     public class TableService : BaseService<TableApiModel, Table>, ITableService
     {
         private readonly IPlaceService _placeService;
-        public TableService(ITableRepository repository, IMapper mapper, IPlaceService placeService) : base(repository, mapper)
+        private readonly IBookingService _bookingService;
+        public TableService(ITableRepository repository, IMapper mapper, IPlaceService placeService, IBookingService bookingService) : base(repository, mapper)
         {
             _placeService = placeService;
+            _bookingService = bookingService;
         }
 
         public async Task<List<TableApiModel>> GetByPlaceId(int placeId)
         {
+            var tempResult = await _repository.GetAllAsync(x => x.PlaceId == placeId);
+            if (tempResult.Count == 0) throw new ApiException($"Tables by place {placeId} not found");
+
+            var bookings = await _bookingService.GetForTodayByPlace(placeId);
+            if(bookings.Count > 0)
+            {
+                var tablesToUpdate = tempResult.Where(item => bookings.Select(b => b.TableId).Contains(item.Id)).ToList();
+                tablesToUpdate.ForEach(table => table.IsFree = false);
+                foreach(var table in tablesToUpdate)
+                {
+                    await _repository.UpdateAsync(table);
+                }
+            }
             var result = await _repository.GetAllAsync(x => x.PlaceId == placeId);
-            if (result.Count == 0) throw new ApiException($"Tables by place {placeId} not found");
             return _mapper.Map<List<TableApiModel>>(result);
         }
 

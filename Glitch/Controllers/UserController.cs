@@ -42,7 +42,8 @@ namespace Glitch.Controllers
                     UserName = model.Email,
                     EmailConfirmed = true,
                     CreatedAt = time,
-                    UpdatedAt = time
+                    UpdatedAt = time,
+                    PhoneNumber = model.PhoneNumber,
                 };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
