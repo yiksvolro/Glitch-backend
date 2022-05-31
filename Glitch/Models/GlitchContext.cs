@@ -18,6 +18,7 @@ namespace Glitch.Models
         public DbSet<Place> Places { get; set; }
         public DbSet<Table> Tables { get; set; }
         public DbSet<Booking> Bookings { get; set; }
+        public DbSet<File> Files { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,6 +36,11 @@ namespace Glitch.Models
                 entity.HasOne(b => b.User).WithMany(u => u.Bookings).HasForeignKey(b => b.UserId).OnDelete(DeleteBehavior.NoAction);
                 entity.HasOne(b => b.Table).WithMany(t => t.Bookings).HasForeignKey(b => b.TableId).OnDelete(DeleteBehavior.NoAction);
                 entity.HasOne(b => b.Place).WithMany(p => p.Bookings).HasForeignKey(b => b.PlaceId).OnDelete(DeleteBehavior.NoAction);
+            });
+
+            modelBuilder.Entity<File>(entity =>
+            {
+                entity.HasOne(f => f.Place).WithMany(p => p.Files).HasForeignKey(f => f.PlaceId);
             });
         }
     }

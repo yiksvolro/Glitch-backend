@@ -19,6 +19,9 @@ namespace Glitch.Infrastructure
 
             CreateMap<Booking, BookingApiModel>();
             CreateMap<BookingApiModel, Booking>();
+
+            CreateMap<File, FileApiModel>();
+            CreateMap<FileApiModel, File>();
         }
     }
 }

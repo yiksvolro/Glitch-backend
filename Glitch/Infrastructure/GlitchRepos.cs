@@ -12,6 +12,7 @@ namespace Glitch.Infrastructure
             services.AddScoped<IPlaceRepository, PlaceRepository>();
             services.AddScoped<ITableRepository, TableRepository>();
             services.AddScoped<IBookingRepository, BookingRepository>();
+            services.AddScoped<IFileRepository, FileRepository>();
 
             return services;
         }

@@ -20,6 +20,7 @@ namespace Glitch.Models
         public DateTime UpdatedUtc  { get; set; } = DateTime.UtcNow.GetUkrainianDateTime();
         public virtual List<Table> Tables { get; set; }
         public virtual List<Booking> Bookings { get; set; }
+        public virtual List<File> Files { get; set; }
         public virtual User User { get; set; }
         public int UserId { get; set; }
     }
