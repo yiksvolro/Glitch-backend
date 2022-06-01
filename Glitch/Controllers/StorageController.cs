@@ -18,11 +18,22 @@ namespace Glitch.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,PlaceOwner")]
         public async Task<IActionResult> UploadFile(IFormFile file, FileType type, int placeId, string description)
         {
             return Ok(
                 await _storageService.UploadFile(file, type, placeId, description));
+        }
+        [HttpGet]
+        public async Task<IActionResult> DownloadFile(FileType type, int placeId)
+        {
+            return Ok(await _storageService.DownloadFile(type, placeId));
+        }
+        [HttpDelete]
+        [Authorize(Roles = "Admin,PlaceOwner")]
+        public async Task<IActionResult> DeleteFile(FileType type, int placeId)
+        {
+            return Ok(await _storageService.DeleteFile(type, placeId));
         }
     }
 }

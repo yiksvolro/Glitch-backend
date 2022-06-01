@@ -2,6 +2,7 @@
 using Amazon.Extensions.NETCore.Setup;
 using Amazon.Runtime;
 using Amazon.S3;
+using Glitch.Helpers;
 using Glitch.Services;
 using Glitch.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
@@ -31,6 +32,9 @@ namespace Glitch.Infrastructure
                 Credentials = new BasicAWSCredentials(configuration.GetSection("AWS").GetSection("AccessKeyId").Value, configuration.GetSection("AWS").GetSection("SecretAccessKey").Value),
                 Region = RegionEndpoint.GetBySystemName(configuration.GetSection("AWS").GetSection("RegionEndpoint").Value)
             });
+
+            services.Configure<StorageConfiguration>(options => configuration.GetSection("AWS").Bind(options));
+
             // Import Repositories
             services.AddGlitchRepos();
 
