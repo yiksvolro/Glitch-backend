@@ -27,7 +27,7 @@ namespace Glitch.Controllers
         {
             return Ok(await _tableService.GetByPlaceId(placeId));
         }
-        [HttpGet("{placeId")]
+        [HttpGet("{placeId}")]
         public async Task<IActionResult> GetPlaceById(int placeId)
         {
             return Ok(await _placeService.GetByIdAsync(placeId));
