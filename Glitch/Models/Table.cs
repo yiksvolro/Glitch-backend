@@ -10,6 +10,7 @@ namespace Glitch.Models
         public string Top { get; set; }
         public string Left { get; set; }
         public string Transform { get; set; }
+        public string Type { get; set; }
         public int Capacity { get; set; }
         public bool IsFree { get; set; }
         public DateTime CreatedUtc { get; set; } = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("FLE Standard Time"));
