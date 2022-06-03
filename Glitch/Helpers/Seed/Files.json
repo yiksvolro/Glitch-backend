@@ -1,0 +1,398 @@
+[
+  {
+    "placeId": 1,
+    "filePath": "images/1/MiniBackground/1.png",
+    "description": null,
+    "type": 1
+  },
+  {
+    "placeId": 1,
+    "filePath": "images/1/BigBackground/2.png",
+    "description": null,
+    "type": 2
+  },
+  {
+    "placeId": 1,
+    "filePath": "images/1/Description1/3.png",
+    "description": "Про ресторан «Панорама» у Львові можна сказати словами Оскара Уайльда: «Смак мовчазний». Це твердження справедливе для елітного ресторану , що ідеально вписався в атмосферу вузенької львівської вулички.",
+    "type": 3
+  },
+  {
+    "placeId": 1,
+    "filePath": "images/1/Description2/4.png",
+    "description": "Сучасний дизайн, затишна атмосфера, розслабляюча музика  без слів запрошують або навіть спокушають увійти всередину. ",
+    "type": 4
+  },
+  {
+    "placeId": 1,
+    "filePath": "images/1/Description3/5.png",
+    "description": "Професійність наших кухарів дарує незабутнє враження, бо  після дегустації їхніх страв хочеться повторити цей досвід.",
+    "type": 5
+  },
+  {
+    "placeId": 1,
+    "filePath": "images/1/Description4/6.png",
+    "description": " Бар нашого ресторану славиться великим асортиментом коктелів, шотів, вин і міцних напоїв. Також, на жаль, знайдуться і безалкогольні",
+    "type": 6
+  },
+  {
+    "placeId": 1,
+    "filePath": "images/1/RestaurantPhoto1/7.png",
+    "description": null,
+    "type": 7
+  },
+  {
+    "placeId": 1,
+    "filePath": "images/1/RestaurantPhoto2/8.png",
+    "description": null,
+    "type": 8
+  },
+  {
+    "placeId": 1,
+    "filePath": "images/1/Menu/9.png",
+    "description": null,
+    "type": 9
+  },
+  {
+    "placeId": 1,
+    "filePath": "images/1/MapBackground/10.svg",
+    "description": null,
+    "type": 10
+  },
+  {
+    "placeId": 1,
+    "filePath": "images/1/Exterior/11.png",
+    "description": null,
+    "type": 11
+  },
+  {
+    "placeId": 2,
+    "filePath": "images/2/MiniBackground/1.png",
+    "description": null,
+    "type": 1
+  },
+  {
+    "placeId": 2,
+    "filePath": "images/2/BigBackground/2.png",
+    "description": null,
+    "type": 2
+  },
+  {
+    "placeId": 2,
+    "filePath": "images/2/Description1/3.png",
+    "description": "«Вероніка» - один із найрозкішних закладів міста Львова, який вже протягом 20 років впевнено отримує схвальні відгуки від відвідувачів",
+    "type": 3
+  },
+  {
+    "placeId": 2,
+    "filePath": "images/2/Description2/4.png",
+    "description": "Смачна їжа, затишна атмосфера, красива музика і привітний персонал  спокушають увійти всередину. ",
+    "type": 4
+  },
+  {
+    "placeId": 2,
+    "filePath": "images/2/Description3/5.png",
+    "description": "Заклад створено у стилі віденської кав’ярні кінця 19 століття. У відомій вже 20 років кондитерській звичайні солодощі перетворюються в шедеври ",
+    "type": 5
+  },
+  {
+    "placeId": 2,
+    "filePath": "images/2/Description4/6.png",
+    "description": "Ресторан славиться великим асортиментом кондитерських виробів і професійними і талановитими кондитерами.",
+    "type": 6
+  },
+  {
+    "placeId": 2,
+    "filePath": "images/2/RestaurantPhoto1/7.png",
+    "description": null,
+    "type": 7
+  },
+  {
+    "placeId": 2,
+    "filePath": "images/2/RestaurantPhoto2/8.png",
+    "description": null,
+    "type": 8
+  },
+  {
+    "placeId": 2,
+    "filePath": "images/2/Menu/9.png",
+    "description": null,
+    "type": 9
+  },
+  {
+    "placeId": 2,
+    "filePath": "images/2/MapBackground/10.svg",
+    "description": null,
+    "type": 10
+  },
+  {
+    "placeId": 2,
+    "filePath": "images/2/Exterior/11.png",
+    "description": null,
+    "type": 11
+  },
+  {
+    "placeId": 3,
+    "filePath": "images/3/MiniBackground/1.png",
+    "description": null,
+    "type": 1
+  },
+  {
+    "placeId": 3,
+    "filePath": "images/3/BigBackground/2.png",
+    "description": null,
+    "type": 2
+  },
+  {
+    "placeId": 3,
+    "filePath": "images/3/Description1/3.png",
+    "description": "Унікальний заклад у загальноєвропейському вимірі, адже поєднує в одному комплексі декілька просторів для різнопланового відпочинку. ",
+    "type": 3
+  },
+  {
+    "placeId": 3,
+    "filePath": "images/3/Description2/4.png",
+    "description": "Таким чином ми задовольняємо потреби різних аудиторій гостей - однаково вимогливих до якості та спраглих до вражень ",
+    "type": 4
+  },
+  {
+    "placeId": 3,
+    "filePath": "images/3/Description3/5.png",
+    "description": "Наш ресторан - це простір, де їжа стає витвором мистецтва. Кухарі закладу дбають, щоб кожна страва викликала емоцію та випереджала гастрономічні тренди. ",
+    "type": 5
+  },
+  {
+    "placeId": 3,
+    "filePath": "images/3/Description4/6.png",
+    "description": "Бар закладу пропонує широкий асортимент напоїв з різних куточків світу. Лінійка коктейлів поєднує в собі класичні напої та екстравагантні авторські шедеври",
+    "type": 6
+  },
+  {
+    "placeId": 3,
+    "filePath": "images/3/RestaurantPhoto1/7.png",
+    "description": null,
+    "type": 7
+  },
+  {
+    "placeId": 3,
+    "filePath": "images/3/RestaurantPhoto2/8.png",
+    "description": null,
+    "type": 8
+  },
+  {
+    "placeId": 3,
+    "filePath": "images/3/Menu/9.png",
+    "description": null,
+    "type": 9
+  },
+  {
+    "placeId": 3,
+    "filePath": "images/3/MapBackground/10.svg",
+    "description": null,
+    "type": 10
+  },
+  {
+    "placeId": 3,
+    "filePath": "images/3/Exterior/11.png",
+    "description": null,
+    "type": 11
+  },
+  {
+    "placeId": 4,
+    "filePath": "images/4/MiniBackground/1.png",
+    "description": null,
+    "type": 1
+  },
+  {
+    "placeId": 4,
+    "filePath": "images/4/BigBackground/2.png",
+    "description": null,
+    "type": 2
+  },
+  {
+    "placeId": 4,
+    "filePath": "images/4/Description1/3.png",
+    "description": "На першому поверсі Vintage Boutique Hotel - гастрономічна резиденція готелю. Тут відкривають свої двері три зали ресторану авторської кухні. Місце для цінителів європейської кухні",
+    "type": 3
+  },
+  {
+    "placeId": 4,
+    "filePath": "images/4/Description2/4.png",
+    "description": "Ресторан Vintage Nouveau – це гастрономічна резиденція авторської кухні, яка розташувалася на першому поверсі Vintage Boutique Hotel у центрі Львова. ",
+    "type": 4
+  },
+  {
+    "placeId": 4,
+    "filePath": "images/4/Description3/5.png",
+    "description": "Vintage Nouveau люблять не тільки за неповторно смачну кухню, а й за його інтер’єри, за посмішки персоналу. Романтично, по-домашньому комфортно – побувавши лише один раз, ти закохуєшся назавжди.",
+    "type": 5
+  },
+  {
+    "placeId": 4,
+    "filePath": "images/4/Description4/6.png",
+    "description": "Ідейне наповнення ресторану відображає любов до гарних деталей зібраних зі всіх куточків планети. Ми подорожуємо, змінюємося і завжди стежимо за світовими тенденціями.",
+    "type": 6
+  },
+  {
+    "placeId": 4,
+    "filePath": "images/4/RestaurantPhoto1/7.png",
+    "description": null,
+    "type": 7
+  },
+  {
+    "placeId": 4,
+    "filePath": "images/4/RestaurantPhoto2/8.png",
+    "description": null,
+    "type": 8
+  },
+  {
+    "placeId": 4,
+    "filePath": "images/4/Menu/9.png",
+    "description": null,
+    "type": 9
+  },
+  {
+    "placeId": 4,
+    "filePath": "images/4/MapBackground/10.svg",
+    "description": null,
+    "type": 10
+  },
+  {
+    "placeId": 4,
+    "filePath": "images/4/Exterior/11.png",
+    "description": null,
+    "type": 11
+  },
+  {
+    "placeId": 5,
+    "filePath": "images/5/MiniBackground/1.png",
+    "description": null,
+    "type": 1
+  },
+  {
+    "placeId": 5,
+    "filePath": "images/5/BigBackground/2.png",
+    "description": null,
+    "type": 2
+  },
+  {
+    "placeId": 5,
+    "filePath": "images/5/Description1/3.png",
+    "description": "Ресторан-паб \"Чорний кіт\" є унікальною українською інтерпретацією англійського пабу. Поєднуючи сучасну елегантність, приватну атмосферу і високий рівень обслуговування, він має ознаки справжньої досконалості.",
+    "type": 3
+  },
+  {
+    "placeId": 5,
+    "filePath": "images/5/Description2/4.png",
+    "description": "Тільки в цьому ресторані з постійно високим рівнем приготування їжі ви можете знайти такий елегантний і дорогий інтер'єр.",
+    "type": 4
+  },
+  {
+    "placeId": 5,
+    "filePath": "images/5/Description3/5.png",
+    "description": "Італійську піцу на будь-який смак і багато інших страв печуть в пічці на дровах. Пшеничний і кукурудзяний домашній хліб, спечений у цій печі за старовинними рецептами є прекрасним доповненням до будь-якої їжі.",
+    "type": 5
+  },
+  {
+    "placeId": 5,
+    "filePath": "images/5/Description4/6.png",
+    "description": "В ресторані-пабі є різні види пива, від світлого до темного. Якщо спробуєте чебуреки і домашні ковбаски, які подаються з пивом, ви ніколи не забудете цей смак.",
+    "type": 6
+  },
+  {
+    "placeId": 5,
+    "filePath": "images/5/RestaurantPhoto1/7.png",
+    "description": null,
+    "type": 7
+  },
+  {
+    "placeId": 5,
+    "filePath": "images/5/RestaurantPhoto2/8.png",
+    "description": null,
+    "type": 8
+  },
+  {
+    "placeId": 5,
+    "filePath": "images/5/Menu/9.png",
+    "description": null,
+    "type": 9
+  },
+  {
+    "placeId": 5,
+    "filePath": "images/5/MapBackground/10.svg",
+    "description": null,
+    "type": 10
+  },
+  {
+    "placeId": 5,
+    "filePath": "images/5/Exterior/11.png",
+    "description": null,
+    "type": 11
+  },
+  {
+    "placeId": 6,
+    "filePath": "images/6/MiniBackground/1.png",
+    "description": null,
+    "type": 1
+  },
+  {
+    "placeId": 6,
+    "filePath": "images/6/BigBackground/2.png",
+    "description": null,
+    "type": 2
+  },
+  {
+    "placeId": 6,
+    "filePath": "images/6/Description1/3.png",
+    "description": "Ресторан  Vapiano - це частинка Італії у Львові. Тут можна весело провести час з компанією або ж отримати насолоду на одинці за чашкою ароматної кави, спокійно дивлячись на життя галасливого міста через вікно.",
+    "type": 3
+  },
+  {
+    "placeId": 6,
+    "filePath": "images/6/Description2/4.png",
+    "description": "Заклад пропонує всім гостям спробувати на смак страви італійської кухні. Тільки тут кухарі працюють з традиційними рецептами національної італійської кухні, які були зібрані по всіх регіонах сонячної країни.",
+    "type": 4
+  },
+  {
+    "placeId": 6,
+    "filePath": "images/6/Description3/5.png",
+    "description": "Ароматна піца, смачна паста, безліч неймовірних закусок і традиційні десерти підкорять кожного гостя з першого укусу.",
+    "type": 5
+  },
+  {
+    "placeId": 6,
+    "filePath": "images/6/Description4/6.png",
+    "description": "Зали ресторану створені в стриманому космополітичному стилі, що дозволить відпочити душею і набратися сил на нові звершення. Італійський ресторан Vapiano запрошує всіх бажаючих отримати насолоду від традиційних страв,",
+    "type": 6
+  },
+  {
+    "placeId": 6,
+    "filePath": "images/6/RestaurantPhoto1/7.png",
+    "description": null,
+    "type": 7
+  },
+  {
+    "placeId": 6,
+    "filePath": "images/6/RestaurantPhoto2/8.png",
+    "description": null,
+    "type": 8
+  },
+  {
+    "placeId": 6,
+    "filePath": "images/6/Menu/9.png",
+    "description": null,
+    "type": 9
+  },
+  {
+    "placeId": 6,
+    "filePath": "images/6/MapBackground/10.svg",
+    "description": null,
+    "type": 10
+  },
+  {
+    "placeId": 6,
+    "filePath": "images/6/Exterior/11.png",
+    "description": null,
+    "type": 11
+  }
+]

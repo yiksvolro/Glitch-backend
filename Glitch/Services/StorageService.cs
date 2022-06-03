@@ -74,7 +74,7 @@ namespace Glitch.Services
             {
                 MemoryStream memoryStream = new MemoryStream();
                 await response.ResponseStream.CopyToAsync(memoryStream);
-                return new FileResponseModel { File = memoryStream.ToArray(), Description = file.Description };
+                return new FileResponseModel { File = memoryStream.ToArray(), ContentType = response.Headers.ContentType };
             }
             else
                 throw new ApiException($"Error while downloadng file by path '{file.FilePath}'");

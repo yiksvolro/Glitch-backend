@@ -12,9 +12,11 @@ namespace Glitch.Controllers
     public class StorageController : Controller
     {
         private readonly IStorageService _storageService;
-        public StorageController(IStorageService storageService)
+        private readonly IFileService _fileService;
+        public StorageController(IStorageService storageService, IFileService fileService)
         {
             _storageService = storageService;
+            _fileService = fileService;
         }
 
         [HttpPost]
@@ -27,7 +29,18 @@ namespace Glitch.Controllers
         [HttpGet]
         public async Task<IActionResult> DownloadFile(FileType type, int placeId)
         {
-            return Ok(await _storageService.DownloadFile(type, placeId));
+            var result = await _storageService.DownloadFile(type, placeId);
+            return File(result.File, result.ContentType);
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetDescription(FileType type, int placeId)
+        {
+            return Ok((await _fileService.GetFile(type, placeId)).Description);
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetAllFiles()
+        {
+            return Ok(await _fileService.GetAllAsync());
         }
         [HttpDelete]
         [Authorize(Roles = "Admin,PlaceOwner")]
