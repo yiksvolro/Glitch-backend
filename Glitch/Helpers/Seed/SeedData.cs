@@ -2,8 +2,12 @@
 using Glitch.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Glitch.Helpers
@@ -31,7 +35,7 @@ namespace Glitch.Helpers
                 }
 
 
-                var user = new User
+                var admin = new User
                 {
                     FirstName = "SuperAdmin",
                     LastName = "Admin",
@@ -46,31 +50,58 @@ namespace Glitch.Helpers
                 };
 
 
-                if (!context.Users.Any(u => u.UserName == user.UserName))
+                if (!context.Users.Any())
                 {
                     var password = new PasswordHasher<User>();
-                    var hashed = password.HashPassword(user, simplePass);
-                    user.PasswordHash = hashed;
+                    var hashed = password.HashPassword(admin, simplePass);
+                    admin.PasswordHash = hashed;
 
                     var userStore = new AppUserStore(context);
-                    var result = userStore.CreateAsync(user);
+                    await userStore.CreateAsync(admin);
+                    await userStore.AddToRoleAsync(admin, "Admin");
+                    var listOfUsers = CreateUsers();
+                    foreach (var user in listOfUsers)
+                    {
+                        user.PasswordHash = password.HashPassword(user, "User111");
+                        await userStore.CreateAsync(user);
+                        await userStore.AddToRoleAsync(user, "PlaceOwner");
+                    
+                    }
 
                 }
-                await AssignRoles(scope.ServiceProvider, user.Email, roles);
+                if (!context.Places.Any())
+                {
+                    context.CreatePlaces();
+                }
 
                 await context.SaveChangesAsync();
             });
         }
-
-        public static async Task<IdentityResult> AssignRoles(IServiceProvider services, string email, string[] roles)
+        public static List<User> CreateUsers()
         {
-            UserManager<User> _userManager = services.GetService<UserManager<User>>();
-            var user = await _userManager.FindByEmailAsync(email);
-            var result = await _userManager.AddToRolesAsync(user, roles);
-
-            return result;
+            return new List<User>
+            {
+                new User { FirstName = "Vitaliy", LastName = "Kim", Email = "korea@gmail.com", PhoneNumber = "+3890656560", UserName = "korea@gmail.com", EmailConfirmed = true, PhoneNumberConfirmed = true, SecurityStamp = Guid.NewGuid().ToString("D")},
+                new User { FirstName = "Dmytro", LastName = "Voitkiv", Email = "prisno@gmail.com", PhoneNumber = "+303058939", UserName = "prisno@gmail.com", EmailConfirmed = true, PhoneNumberConfirmed = true, SecurityStamp = Guid.NewGuid().ToString("D")},
+                new User { FirstName = "Max", LastName = "Kuk", Email = "gorpyn@ukr.net", PhoneNumber = "+338535735", UserName = "gorpyn@ukr.net", EmailConfirmed = true, PhoneNumberConfirmed = true, SecurityStamp = Guid.NewGuid().ToString("D")},
+                new User { FirstName = "Nadiya", LastName = "Khasyshyn", Email = "ruby@gmail.com", PhoneNumber = "+3093053933", UserName = "ruby@gmail.com", EmailConfirmed = true, PhoneNumberConfirmed = true, SecurityStamp = Guid.NewGuid().ToString("D")},
+                new User { FirstName = "Sanya", LastName = "Orlovskii", Email = "zakarpattya@gmail.com", UserName = "zakarpattya@gmail.com", EmailConfirmed = true, PhoneNumberConfirmed = true, SecurityStamp = Guid.NewGuid().ToString("D")},
+                new User { FirstName = "Yarik", LastName = "Sobko", Email= "poshta@gmail.com", UserName = "poshta@gmail.com", EmailConfirmed = true, PhoneNumberConfirmed = true, SecurityStamp = Guid.NewGuid().ToString("D") },
+                new User { FirstName = "Mykola", LastName = "Pavlyk", Email = "grandbityyy67@gmail.com", UserName = "grandbityyy67@gmail.com", EmailConfirmed = true, PhoneNumberConfirmed = true, SecurityStamp = Guid.NewGuid().ToString("D")}
+            };
         }
-
+        public static GlitchContext CreatePlaces(this GlitchContext context)
+        {
+            var listOfPlaces = new List<Place>();
+            using (var streamReader = new StreamReader(Path.Combine(Environment.CurrentDirectory, @"Helpers\Seed\Places.json"), Encoding.GetEncoding(1251)))
+            {
+                string jsonString = streamReader.ReadToEnd();
+                listOfPlaces =
+                    JsonConvert.DeserializeObject<List<Place>>(jsonString);
+            }
+            context.Places.AddRange(listOfPlaces);
+            return context;
+        }
         
     }
 }

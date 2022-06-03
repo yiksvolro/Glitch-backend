@@ -1,0 +1,75 @@
+[
+  {
+    "name": "–есторан  УѕанорамаФ",
+    "shortName": "ѕанорама",
+    "location": "ѕроспект —вободи 45",
+    "latitude": 49.843754,
+    "longitude": 24.025675,
+    "workTime": "09:00 - 21:00",
+    "rating": "3.2",
+    "allTables": 0,
+    "freeTables": 0,
+    "userId": 1
+  },
+  {
+    "name": "–есторан  У¬ерон≥каФ",
+    "shortName": "¬ерон≥ка",
+    "location": "проспект Ўевченка, 21, Ћьв≥в",
+    "latitude": 49.83654867521059,
+    "longitude": 24.032338213456818,
+    "workTime": "9:00-23:00",
+    "rating": "4.8",
+    "allTables": 0,
+    "freeTables": 0,
+    "userId": 2
+  },
+  {
+    "name": "–есторан  УSplitФ",
+    "shortName": "Split",
+    "location": "площа ћ≥цкевича, 6/7, Ћьв≥в",
+    "latitude": 49.83929505764658,
+    "longitude": 24.028793461291965,
+    "workTime": "10:00-23:00",
+    "rating": "4.3",
+    "allTables": 0,
+    "freeTables": 0,
+    "userId": 2
+  },
+  {
+    "id": 0,
+    "name": "–есторан  УVintage NouveauФ",
+    "shortName": "Vintage Nouveau",
+    "location": "вулиц€ —тароЇврейська, 25, Ћьв≥в,",
+    "latitude": 49.84090252593574,
+    "longitude": 24.033500117238,
+    "workTime": "10:00-22:00",
+    "rating": "5",
+    "allTables": 0,
+    "freeTables": 0,
+    "userId": 3
+  },
+  {
+    "name": "–есторан-паб  У„орний к≥тФ",
+    "shortName": "„орний к≥т",
+    "location": "вулиц€ √ероњв ћайдану, 4, Ћьв≥в",
+    "latitude": 49.830544052867964,
+    "longitude": 24.01818172301441,
+    "workTime": "11:00-21:00",
+    "rating": "4",
+    "allTables": 0,
+    "freeTables": 0,
+    "userId": 3
+  },
+  {
+    "name": "–есторан  УVapianoФ",
+    "shortName": "Vapiano",
+    "location": "вулиц€ јкадем≥ка √натюка, 12ј, Ћьв≥в",
+    "latitude": 49.842239067210926,
+    "longitude": 24.024853686285468,
+    "workTime": "11:00-22:00",
+    "rating": "3",
+    "allTables": 0,
+    "freeTables": 0,
+    "userId": 4
+  }
+]
