@@ -62,20 +62,21 @@ namespace Glitch.Services
         {
             var file = await _fileService.GetFile(type, placeId);
 
-            GetObjectRequest request = new GetObjectRequest()
-            {
-                BucketName = this.BucketName,
-                Key = file.FilePath
-            };
+            //GetObjectRequest request = new GetObjectRequest()
+            //{
+            //    BucketName = this.BucketName,
+            //    Key = file.FilePath
+            //};
 
-            GetObjectResponse response = await _client.GetObjectAsync(request);
+            //GetObjectResponse response = await _client.GetObjectAsync(request);
 
-            if (response.HttpStatusCode.Equals(HttpStatusCode.OK))
-            {
-                MemoryStream memoryStream = new MemoryStream();
-                await response.ResponseStream.CopyToAsync(memoryStream);
-                return new FileResponseModel { File = memoryStream.ToArray(), Description = file.Description };
-            }
+            //if (response.HttpStatusCode.Equals(HttpStatusCode.OK))
+            //{
+            //    MemoryStream memoryStream = new MemoryStream();
+            //    await response.ResponseStream.CopyToAsync(memoryStream);
+            //    return new FileResponseModel { File = memoryStream.ToArray(), Description = file.Description };
+            //}
+            if (file != null) return new FileResponseModel {  FilePath = file.FilePath, Description = file.Description };
             else
                 throw new ApiException($"Error while downloadng file by path '{file.FilePath}'");
         }
