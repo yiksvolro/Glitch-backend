@@ -14,16 +14,16 @@ namespace Glitch.Services
     public class PlaceService : BaseService<PlaceApiModel, Place>, IPlaceService
     {
         private readonly IBookingRepository _bookingRepository;
-        private readonly IPlaceRepository _placeRepository;
-        public PlaceService(IPlaceRepository repository, IMapper mapper, IBookingRepository bookingRepository, IPlaceRepository placeRepository) : base(repository, mapper)
+        public PlaceService(IPlaceRepository repository, IMapper mapper, IBookingRepository bookingRepository) : base(repository, mapper)
         {
             _bookingRepository = bookingRepository;
-            _placeRepository = placeRepository;
         }
 
-        public async Task<PagedResult<PlaceApiModel>> GetPagedFreePlaces(BasePageModel model)
+        public async Task<PagedResult<PlaceApiModel>> GetPagedPlaces(BasePageModel model, bool isOnlyFree)
         {
-            var result = await _placeRepository.GetPageAsync<PlaceApiModel>(x => x.FreeTables > 0, model.Page, model.PageSize);
+            var result = isOnlyFree ? 
+                await _repository.GetPageAsync<PlaceApiModel>(x => x.FreeTables > 0, model.Page, model.PageSize) :
+                await _repository.GetPageAsync<PlaceApiModel>(model.Page, model.PageSize);
             if (result == null) throw new ApiException("There is no free places");
             return result;
         }

@@ -18,9 +18,9 @@ namespace Glitch.Controllers
             _tableService = tableService;
         }
         [HttpGet]
-        public async Task<IActionResult> GetPagedFreePlaces([FromQuery]BasePageModel model)
+        public async Task<IActionResult> GetPagedPlaces([FromQuery]BasePageModel model, bool isOnlyFree)
         {
-            return Ok(await _placeService.GetPagedFreePlaces(model));
+            return Ok(await _placeService.GetPagedPlaces(model, isOnlyFree));
         }
         [HttpGet("{placeId}")]
         public async Task<IActionResult> GetTablesByPlace(int placeId)

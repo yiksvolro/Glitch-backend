@@ -30,18 +30,13 @@ namespace Glitch.Controllers
         public async Task<IActionResult> DownloadFile(FileType type, int placeId)
         {
             var result = await _storageService.DownloadFile(type, placeId);
-            return File(result.File, result.ContentType);
+            return Ok(result);
         }
-        [HttpGet]
-        public async Task<IActionResult> GetDescription(FileType type, int placeId)
-        {
-            return Ok((await _fileService.GetFile(type, placeId)).Description);
-        }
-        [HttpGet]
-        public async Task<IActionResult> GetAllFiles()
-        {
-            return Ok(await _fileService.GetAllAsync());
-        }
+        //[HttpGet]
+        //public async Task<IActionResult> GetDescription(FileType type, int placeId)
+        //{
+        //    return Ok((await _fileService.GetFile(type, placeId)).Description);
+        //}
         [HttpDelete]
         [Authorize(Roles = "Admin,PlaceOwner")]
         public async Task<IActionResult> DeleteFile(FileType type, int placeId)
