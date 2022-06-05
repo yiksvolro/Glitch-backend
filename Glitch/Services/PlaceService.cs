@@ -19,11 +19,26 @@ namespace Glitch.Services
             _bookingRepository = bookingRepository;
         }
 
-        public async Task<PagedResult<PlaceApiModel>> GetPagedPlaces(BasePageModel model, bool isOnlyFree)
+        public async Task<PagedResult<PlaceApiModel>> GetPagedPlaces(BasePageModel model, bool isOnlyFree, string filter = null)
         {
-            var result = isOnlyFree ? 
-                await _repository.GetPageAsync<PlaceApiModel>(x => x.FreeTables > 0, model.Page, model.PageSize) :
-                await _repository.GetPageAsync<PlaceApiModel>(model.Page, model.PageSize);
+            var result = new PagedResult<PlaceApiModel>();
+            filter = filter != null ? filter.ToLower() : null;
+            if (isOnlyFree && filter != null)
+            {
+                result = await _repository.GetPageAsync<PlaceApiModel>(x => x.FreeTables > 0 && x.ShortName.ToLower().StartsWith(filter), model.Page, model.PageSize);
+            }
+            else if(filter != null)
+            {
+                result = await _repository.GetPageAsync<PlaceApiModel>(x => x.ShortName.ToLower().StartsWith(filter), model.Page, model.PageSize);
+            }
+            else if (isOnlyFree)
+            {
+                result = await _repository.GetPageAsync<PlaceApiModel>(x => x.FreeTables > 0, model.Page, model.PageSize);
+            }
+            else
+            {
+                result = await _repository.GetPageAsync<PlaceApiModel>(model.Page, model.PageSize);
+            }
             if (result == null) throw new ApiException("There is no free places");
             return result;
         }

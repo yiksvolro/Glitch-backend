@@ -18,6 +18,9 @@ namespace Glitch.Models
         public int FreeTables { get; set; }
         public DateTime CreatedUtc { get; set; } = DateTime.UtcNow.GetUkrainianDateTime();
         public DateTime UpdatedUtc  { get; set; } = DateTime.UtcNow.GetUkrainianDateTime();
+        public string PhoneNumber { get; set; }
+        public string InstagramName { get; set; }
+        public string Email { get; set; }
         public virtual List<Table> Tables { get; set; }
         public virtual List<Booking> Bookings { get; set; }
         public virtual List<File> Files { get; set; }
