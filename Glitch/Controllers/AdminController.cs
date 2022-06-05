@@ -50,6 +50,7 @@ namespace Glitch.Controllers
             return Ok(await _placeService.DeleteAsync(placeId));
         }
         [HttpGet("{userId}")]
+        [Authorize(Roles="PlaceOwner")]
         public async Task<IActionResult> GetUser(string userId)
         {
             var user = await _userService.GetUserByUserId(userId);
