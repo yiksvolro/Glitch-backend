@@ -9,7 +9,10 @@
     "rating": "3.2",
     "allTables": 0,
     "freeTables": 0,
-    "userId": 1
+    "userId": 1,
+    "email": "panorama@gmail.com",
+    "instagramname": "@panorama",
+    "phonenumber": "+380568741239"
   },
   {
     "name": "–есторан  У¬ерон≥каФ",
@@ -21,7 +24,10 @@
     "rating": "4.8",
     "allTables": 0,
     "freeTables": 0,
-    "userId": 2
+    "userId": 2,
+    "email": "veronika@gmail.com",
+    "instagramname": "@veronika",
+    "phonenumber": "+380996874512"
   },
   {
     "name": "–есторан  УSplitФ",
@@ -33,7 +39,10 @@
     "rating": "4.3",
     "allTables": 0,
     "freeTables": 0,
-    "userId": 2
+    "userId": 2,
+    "email": "split@gmail.com",
+    "instagramname": "@split",
+    "phonenumber": "+380125879456"
   },
   {
     "id": 0,
@@ -46,7 +55,10 @@
     "rating": "5",
     "allTables": 0,
     "freeTables": 0,
-    "userId": 3
+    "userId": 3,
+    "email": "vintage@gmail.com",
+    "instagramname": "@vintage",
+    "phonenumber": "+380798654312"
   },
   {
     "name": "–есторан-паб  У„орний к≥тФ",
@@ -58,7 +70,10 @@
     "rating": "4",
     "allTables": 0,
     "freeTables": 0,
-    "userId": 3
+    "userId": 3,
+    "email": "black_cat@gmail.com",
+    "instagramname": "@black_cat",
+    "phonenumber": "+380987456321"
   },
   {
     "name": "–есторан  УVapianoФ",
@@ -70,6 +85,9 @@
     "rating": "3",
     "allTables": 0,
     "freeTables": 0,
-    "userId": 4
+    "userId": 4,
+    "email": "vapiano@gmail.com",
+    "instagramname": "@vapiano",
+    "phonenumber": "+380987210539"
   }
 ]
