@@ -83,6 +83,11 @@ namespace Glitch.Helpers
                     context.CreateFiles();
                 }
 
+                if (!context.Tables.Any())
+                {
+                    context.CreateTables();
+                }
+
                 await context.SaveChangesAsync();
             });
         }
@@ -128,6 +133,17 @@ namespace Glitch.Helpers
             }
             listOfFiles.ForEach(file => file.Place = listOfPlaces[file.PlaceId - 1]);
             context.Files.AddRange(listOfFiles);
+            return context;
+        }
+        public static GlitchContext CreateTables(this GlitchContext context)
+        {
+            var listOfTables = new List<Table>();
+            using (var streamReader = new StreamReader(Path.Combine(Environment.CurrentDirectory, @"Helpers\Seed\tables.json")))
+            {
+                var jsonString = streamReader.ReadToEnd();
+                listOfTables = JsonConvert.DeserializeObject<List<Table>>(jsonString);
+            }
+            context.Tables.AddRange(listOfTables);
             return context;
         }
         

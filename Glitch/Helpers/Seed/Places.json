@@ -89,5 +89,20 @@
     "email": "vapiano@gmail.com",
     "instagramname": "@vapiano",
     "phonenumber": "+380987210539"
+  },
+  {
+    "name": "Кафе-Бар “У Марти”",
+    "shortName": "У Марти",
+    "location": "Вул. Степана Бандери 2, Львів",
+    "latitude": 49.834722047658296,
+    "longitude": 24.019718766072586,
+    "workTime": "10:00-22:00",
+    "rating": "5",
+    "phoneNumber": "+380786432798",
+    "instagramName": "@u_Marty",
+    "email": "u_marty@ukr.net",
+    "allTables": 0,
+    "freeTables": 0,
+    "userId": 1
   }
 ]
