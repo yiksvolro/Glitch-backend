@@ -36,10 +36,6 @@ namespace Glitch.Controllers
         {
             var userId = Convert.ToInt32(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
             var result = await _bookingService.GetBookingsByUserId(userId, model);
-            foreach(var booking in result.Results)
-            {
-                booking.Number = _tableService.GetByIdAsync(booking.TableId).Result.Number;
-            }
             return Ok(result);
         }
         [HttpGet]
@@ -47,7 +43,6 @@ namespace Glitch.Controllers
         public async Task<IActionResult> GetBookingsForTodayByPlace(int placeId)
         {
             var result = await _bookingService.GetForTodayByPlace(placeId);
-            result.ForEach(x => x.Number = _tableService.GetByIdAsync(x.TableId).Result.Number);
             return Ok(result);
         }
         [HttpPut]
