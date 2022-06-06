@@ -394,5 +394,71 @@
     "filePath": "images/6/Exterior/11.png",
     "description": null,
     "type": 11
+  },
+  {
+    "placeId": 7,
+    "filePath": "images/7/MiniBackground/1.png",
+    "description": null,
+    "type": 1
+  },
+  {
+    "placeId": 7,
+    "filePath": "images/7/BigBackground/2.png",
+    "description": null,
+    "type": 2
+  },
+  {
+    "placeId": 7,
+    "filePath": "images/7/Description1/3.png",
+    "description": "Ресторан  Vapiano - це частинка Італії у Львові. Тут можна весело провести час з компанією або ж отримати насолоду на одинці за чашкою ароматної кави, спокійно дивлячись на життя галасливого міста через вікно.",
+    "type": 3
+  },
+  {
+    "placeId": 7,
+    "filePath": "images/7/Description2/4.png",
+    "description": "Заклад пропонує всім гостям спробувати на смак страви італійської кухні. Тільки тут кухарі працюють з традиційними рецептами національної італійської кухні, які були зібрані по всіх регіонах сонячної країни.",
+    "type": 4
+  },
+  {
+    "placeId": 7,
+    "filePath": "images/7/Description3/5.png",
+    "description": "Ароматна піца, смачна паста, безліч неймовірних закусок і традиційні десерти підкорять кожного гостя з першого укусу.",
+    "type": 5
+  },
+  {
+    "placeId": 7,
+    "filePath": "images/7/Description4/6.png",
+    "description": "Зали ресторану створені в стриманому космополітичному стилі, що дозволить відпочити душею і набратися сил на нові звершення. Італійський ресторан Vapiano запрошує всіх бажаючих отримати насолоду від традиційних страв,",
+    "type": 6
+  },
+  {
+    "placeId": 7,
+    "filePath": "images/7/RestaurantPhoto1/7.png",
+    "description": null,
+    "type": 7
+  },
+  {
+    "placeId": 7,
+    "filePath": "images/7/RestaurantPhoto2/8.png",
+    "description": null,
+    "type": 8
+  },
+  {
+    "placeId": 7,
+    "filePath": "images/7/Menu/9.png",
+    "description": null,
+    "type": 9
+  },
+  {
+    "placeId": 7,
+    "filePath": "images/7/MapBackground/10.svg",
+    "description": null,
+    "type": 10
+  },
+  {
+    "placeId": 7,
+    "filePath": "images/7/Exterior/11.png",
+    "description": null,
+    "type": 11
   }
 ]
