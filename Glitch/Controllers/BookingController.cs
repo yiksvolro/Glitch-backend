@@ -16,15 +16,18 @@ namespace Glitch.Controllers
     public class BookingController : Controller
     {
         private readonly IBookingService _bookingService;
-        public BookingController(IBookingService bookingService)
+        private readonly ITableService _tableService;
+        public BookingController(IBookingService bookingService, ITableService tableService)
         {
             _bookingService = bookingService;
+            _tableService = tableService;
         }
         [HttpPost]
         public async Task<IActionResult> CreateBooking(BookingApiModel model)
         {
             model.UserId = Convert.ToInt32(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
             var today = DateTime.UtcNow.GetUkrainianDateTime();
+            model.Number = _tableService.GetByIdAsync(model.TableId).Result.Number;
             if (model.BookedOn < today) throw new ApiException("Date and time for booking is wrong!");
             return Ok(await _bookingService.CreateAsync(model));
         }
@@ -32,17 +35,25 @@ namespace Glitch.Controllers
         public async Task<IActionResult> GetMyBookings([FromQuery] BasePageModel model)
         {
             var userId = Convert.ToInt32(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
-            return Ok(await _bookingService.GetBookingsByUserId(userId, model));
+            var result = await _bookingService.GetBookingsByUserId(userId, model);
+            foreach(var booking in result.Results)
+            {
+                booking.Number = _tableService.GetByIdAsync(booking.TableId).Result.Number;
+            }
+            return Ok(result);
         }
         [HttpGet]
         [Authorize(Roles ="PlaceOwner")]
         public async Task<IActionResult> GetBookingsForTodayByPlace(int placeId)
         {
-            return Ok(await _bookingService.GetForTodayByPlace(placeId));
+            var result = await _bookingService.GetForTodayByPlace(placeId);
+            result.ForEach(x => x.Number = _tableService.GetByIdAsync(x.TableId).Result.Number);
+            return Ok(result);
         }
         [HttpPut]
         public async Task<IActionResult> UpdateBooking(BookingApiModel model)
         {
+            model.Number = _tableService.GetByIdAsync(model.TableId).Result.Number;
             return Ok(await _bookingService.UpdateAsync(model));
         }
         [HttpDelete]
