@@ -25,11 +25,11 @@ namespace Glitch.Services
             filter = filter != null ? filter.ToLower() : null;
             if (isOnlyFree && filter != null)
             {
-                result = await _repository.GetPageAsync<PlaceApiModel>(x => x.FreeTables > 0 && x.ShortName.ToLower().StartsWith(filter), model.Page, model.PageSize);
+                result = await _repository.GetPageAsync<PlaceApiModel>(x => x.FreeTables > 0 && x.ShortName.ToLower().Contains(filter), model.Page, model.PageSize);
             }
             else if(filter != null)
             {
-                result = await _repository.GetPageAsync<PlaceApiModel>(x => x.ShortName.ToLower().StartsWith(filter), model.Page, model.PageSize);
+                result = await _repository.GetPageAsync<PlaceApiModel>(x => x.ShortName.ToLower().Contains(filter), model.Page, model.PageSize);
             }
             else if (isOnlyFree)
             {
